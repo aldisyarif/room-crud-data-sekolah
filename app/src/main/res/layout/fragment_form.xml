@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    tools:context=".ui.form.FormFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/bt_close"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_baseline_chevron_left"
+            app:tint="@color/grey_60" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Tambah Data"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="@color/grey_80"
+            app:fontFamily="sans-serif-medium" />
+
+        <ImageButton
+            android:id="@+id/btn_save_and_move_to_table"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_baseline_done"
+            app:tint="@color/grey_60" />
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:scrollingCache="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/spacing_mxlarge"
+            android:paddingTop="@dimen/spacing_medium"
+            android:paddingRight="@dimen/spacing_mxlarge"
+            android:paddingBottom="@dimen/spacing_xxlarge">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Foto Sekolah"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/grey_40" />
+
+            <LinearLayout
+                android:id="@+id/btn_camera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:background="@drawable/edit_text_round_bg_outline"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/spacing_large">
+
+                <RelativeLayout
+                    android:id="@+id/img_default"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@color/grey_3">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_centerInParent="true"
+                        app:srcCompat="@drawable/ic_baseline_insert_photo"
+                        app:tint="@color/grey_20" />
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/img_result"
+                    android:visibility="gone"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Foto Sekolah"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/grey_40" />
+
+            </LinearLayout>
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/spacing_mlarge"-->
+<!--                android:text="Tipe Sekolah *"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Caption"-->
+<!--                android:textColor="@color/grey_40" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/et_type_school"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/spacing_xmlarge"-->
+<!--                android:layout_marginTop="@dimen/spacing_middle"-->
+<!--                android:textColor="@color/grey_60"-->
+<!--                android:textColorHint="@color/grey_40"-->
+<!--                android:background="@drawable/edit_text_round_bg_outline"-->
+<!--                android:drawableEnd="@drawable/ic_baseline_arrow_down"-->
+<!--                android:drawableRight="@drawable/ic_baseline_arrow_down"-->
+<!--                android:editable="false"-->
+<!--                android:focusable="false"-->
+<!--                android:minHeight="@dimen/spacing_xmlarge"-->
+<!--                android:paddingLeft="@dimen/spacing_middle"-->
+<!--                android:paddingRight="@dimen/spacing_middle"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_error_type_school"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:visibility="gone"-->
+<!--                android:textColor="#FF1414"-->
+<!--                android:text="-pilih tipe sekolah"/>-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_mlarge"
+                android:text="Tipe Sekolah *"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/grey_40" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_type_school"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                app:errorEnabled="false"
+                app:endIconMode="custom"
+                app:errorTextColor="#FF1414"
+                app:boxStrokeErrorColor="@drawable/edit_text_round_bg_outline_red"
+                app:endIconDrawable="@drawable/ic_baseline_arrow_down"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_type_school"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_xmlarge"
+                    android:padding="0dp"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:textColor="@color/grey_60"
+                    android:background="@drawable/edit_text_round_bg_outline"
+                    android:textColorHint="@color/grey_20" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_mlarge"
+                android:text="Nama Sekolah *"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/grey_40" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_school_name"
+                android:layout_width="match_parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                app:errorEnabled="false"
+                app:endIconMode="custom"
+                app:errorTextColor="#FF1414"
+                app:hintTextAppearance="@style/ErrorTextAppearance"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_school_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_xmlarge"
+                    android:padding="0dp"
+                    android:textColor="@color/grey_60"
+                    android:background="@drawable/edit_text_round_bg_outline"
+                    android:hint="Contoh : SMK Negeri 1 Bandung (untuk negri)"
+                    android:textColorHint="@color/grey_20" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_mlarge"
+                android:text="Alamat *"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/grey_40" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_school_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginTop="@dimen/spacing_middle"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_school_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_round_bg_outline"
+                    android:gravity="start"
+                    android:inputType="textMultiLine"
+                    android:lines="4"
+                    android:textColor="@color/grey_60" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Provinsi *"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                        android:textColor="@color/grey_40" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/layout_provinces"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_middle"
+                        app:errorEnabled="false"
+                        app:endIconMode="custom"
+                        app:errorTextColor="#FF1414"
+                        app:boxStrokeErrorColor="@drawable/edit_text_round_bg_outline_red"
+                        app:endIconDrawable="@drawable/ic_baseline_arrow_down"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_provinces"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/spacing_xmlarge"
+                            android:padding="0dp"
+                            android:clickable="false"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:drawableEnd="@drawable/ic_baseline_arrow_down"
+                            android:textColor="@color/grey_60"
+                            android:background="@drawable/edit_text_round_bg_outline"
+                            android:textColorHint="@color/grey_20" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/spacing_large"
+                    android:layout_height="0dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kode Pos *"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                        android:textColor="@color/grey_40" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/layout_school_zip_code"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_middle"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="5"
+                        app:errorTextColor="#FF1414"
+                        app:boxStrokeErrorColor="@drawable/edit_text_round_bg_outline_red"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_school_zip_code"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/spacing_xmlarge"
+                            android:padding="0dp"
+                            android:inputType="number"
+                            android:textColor="@color/grey_60"
+                            android:background="@drawable/edit_text_round_bg_outline"
+                            android:textColorHint="@color/grey_20" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_mlarge"
+                android:text="Kota / kabupaten *"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/grey_40" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_et_city_district"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                app:errorEnabled="false"
+                app:errorTextColor="#FF1414"
+                app:boxStrokeErrorColor="@drawable/edit_text_round_bg_outline_red"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/ic_baseline_arrow_down"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_city_district"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_xmlarge"
+                    android:padding="0dp"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:textColor="@color/grey_60"
+                    android:background="@drawable/edit_text_round_bg_outline"
+                    android:textColorHint="@color/grey_20" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_mlarge"
+                android:text="No Telpon Sekolah *"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/grey_40" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_shool_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                app:errorEnabled="false"
+                app:errorTextColor="#FF1414"
+                app:boxStrokeErrorColor="@drawable/edit_text_round_bg_outline_red"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_school_phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_xmlarge"
+                    android:padding="0dp"
+                    android:textColor="@color/grey_60"
+                    android:inputType="phone"
+                    android:background="@drawable/edit_text_round_bg_outline"
+                    android:textColorHint="@color/grey_20" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_mlarge"
+                android:text="Email Sekolah *"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/grey_40" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_school_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:errorEnabled="false"
+                app:errorTextColor="#FF1414"
+                app:boxStrokeErrorColor="@drawable/edit_text_round_bg_outline_red"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_school_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_xmlarge"
+                    android:padding="0dp"
+                    android:textColor="@color/grey_60"
+                    android:inputType="textEmailAddress"
+                    android:background="@drawable/edit_text_round_bg_outline"
+                    android:textColorHint="@color/grey_20" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_mlarge"
+                android:text="Facebook"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/grey_40" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:errorEnabled="false"
+                app:errorTextColor="#FF1414"
+                app:boxStrokeErrorColor="@drawable/edit_text_round_bg_outline_red"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_school_facebook"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_xmlarge"
+                    android:padding="0dp"
+                    android:textColor="@color/grey_60"
+                    android:background="@drawable/edit_text_round_bg_outline"
+                    android:textColorHint="@color/grey_20" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_mlarge"
+                android:text="Jumlah Siswa *"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/grey_40" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_school_total_student"
+                android:layout_width="match_parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                app:errorEnabled="false"
+                app:errorTextColor="#FF1414"
+                app:boxStrokeErrorColor="@drawable/edit_text_round_bg_outline_red"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_total_student"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_xmlarge"
+                    android:padding="0dp"
+                    android:textColor="@color/grey_60"
+                    android:inputType="number"
+                    android:background="@drawable/edit_text_round_bg_outline"
+                    android:textColorHint="@color/grey_20" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
